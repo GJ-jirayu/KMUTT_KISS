@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="30A18030-C479-CBFF-8310-9593D849D7BB" type="QM" connection="Student" cube="[fact_new_student]" catalog="Student" schema="Student">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="dim_area" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="dim_area" type="level" node="[dim_area.Area_Name].[Area_Name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="faculty_name" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="faculty_name" type="level" node="[faculty_name.thai_faculty_name].[thai_faculty_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="dim_field" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="dim_field" type="level" node="[dim_field.field_name].[field_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="dim_program" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="dim_program" type="level" node="[dim_program].[program_name_th]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="program_project_name" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="program_project_name" type="level" node="[program_project_name.program_project_name_th].[program_project_name_th]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="Measures" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="Measures" type="member" node="[Measures].[no_of_student]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false" />
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY {Hierarchize({[Measures].[no_of_student]})} ON COLUMNS,
+NON EMPTY CrossJoin([dim_area.Area_Name].[Area_Name].Members, CrossJoin([faculty_name.thai_faculty_name].[thai_faculty_name].Members, CrossJoin([dim_field.field_name].[field_name].Members, CrossJoin([dim_program].[program_name_th].Members, [program_project_name.program_project_name_th].[program_project_name_th].Members)))) ON ROWS
+FROM [fact_new_student]</MDX>
+  <Totals />
+  <Properties>
+    <Property name="saiku.ui.render.mode" value="table" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.automatic_execution" value="true" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+  </Properties>
+</Query>
+

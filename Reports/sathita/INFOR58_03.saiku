@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="6FEFC09F-4CB2-135D-ADC1-886B289CA1CA" type="QM" connection="Personnel" cube="[EMPLOYEE]" catalog="Personnel" schema="Personnel">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="orgenization" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="orgenization" type="level" node="[orgenization].[orgenization_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="department" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="department" type="level" node="[department].[department_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="education_level" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="education_level" type="level" node="[education_level].[education_level_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="emp_type_name" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="emp_type_name" type="member" node="[emp_type_name].[ข้าราชการ]" operator="MEMBER" />
+              <Selection dimension="emp_type_name" type="member" node="[emp_type_name].[พนักงานแบบประจำ]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="Measures" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="Measures" type="member" node="[Measures].[no_of_emp]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false">
+        <Dimensions>
+          <Dimension name="work_group">
+            <Inclusions>
+              <Selection dimension="work_group" type="member" node="[work_group].[อาจารย์]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="dim_date">
+            <Inclusions>
+              <Selection dimension="dim_date" type="member" node="[dim_date.calendar].[2558].[2558 - พ.ค.]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY Hierarchize(Union(CrossJoin([education_level].[education_level_name].Members, CrossJoin({[emp_type_name].[ข้าราชการ]}, {[Measures].[no_of_emp]})), CrossJoin([education_level].[education_level_name].Members, CrossJoin({[emp_type_name].[พนักงานแบบประจำ]}, {[Measures].[no_of_emp]})))) ON COLUMNS,
+NON EMPTY CrossJoin([orgenization].[orgenization_name].Members, [department].[department_name].Members) ON ROWS
+FROM [EMPLOYEE]
+WHERE CrossJoin({[work_group].[อาจารย์]}, {[dim_date.calendar].[2558].[2558 - พ.ค.]})</MDX>
+  <Totals />
+  <Properties>
+    <Property name="saiku.ui.render.mode" value="table" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.automatic_execution" value="true" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+  </Properties>
+</Query>
+

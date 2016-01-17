@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="A69C778E-F565-41BC-91FC-DBE644652E24" type="QM" connection="Finance" cube="[Ledger Account]" catalog="Finance" schema="Finance">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="account_code" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="account_code" type="level" node="[account_code].[account_code]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="fund_name" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="fund_name" type="member" node="[fund_name].[กองทุนสินทรัพย์ถาวร]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false" />
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY {Hierarchize({[fund_name].[กองทุนสินทรัพย์ถาวร]})} ON COLUMNS,
+NON EMPTY {Hierarchize({[account_code].[account_code].Members})} ON ROWS
+FROM [Ledger Account]</MDX>
+  <Totals />
+  <Properties>
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+  </Properties>
+</Query>
+

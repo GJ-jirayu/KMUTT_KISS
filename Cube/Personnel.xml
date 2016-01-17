@@ -1,0 +1,306 @@
+<Schema name="Personnel">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="dim_date" caption="&#3648;&#3604;&#3639;&#3629;&#3609;/&#3611;&#3637;">
+    <Hierarchy name="calendar" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="DATE_KEY" caption="&#3648;&#3604;&#3639;&#3629;&#3609;/&#3611;&#3637;">
+      <Table name="DIM_DATE" schema="KISSUSR1">
+      </Table>
+      <Level name="calendar_year" visible="true" column="CALENDAR_YEAR" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never" caption="&#3611;&#3637;">
+      </Level>
+      <Level name="calendar_month" visible="true" column="CALENDAR_YEAR_MONTH" ordinalColumn="CALENDAR_MONTH_NO" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3648;&#3604;&#3639;&#3629;&#3609;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_month" caption="&#3648;&#3604;&#3639;&#3629;&#3609;/&#3611;&#3637;">
+    <Hierarchy name="calendar" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="DATE_KEY" caption="&#3648;&#3604;&#3639;&#3629;&#3609;/&#3611;&#3637;">
+      <Table name="DIM_DATE" schema="KISSUSR1">
+      </Table>
+      <Level name="calendar_month" visible="true" table="DIM_DATE" column="CALENDAR_YEAR_MONTH" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3648;&#3604;&#3639;&#3629;&#3609;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="group_code" caption="&#3585;&#3621;&#3640;&#3656;&#3617;&#3591;&#3634;&#3609;">
+    <Hierarchy name="group_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="DEPARTMENT_KEY" caption="&#3585;&#3621;&#3640;&#3656;&#3617;&#3591;&#3634;&#3609;">
+      <Table name="HR_DIM_DEPARTMENT" schema="KISSUSR1">
+      </Table>
+      <Level name="group_name" visible="true" column="GROUP_NAME_B" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3585;&#3621;&#3640;&#3656;&#3617;&#3591;&#3634;&#3609;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="department" caption="&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;/&#3626;&#3634;&#3618;&#3623;&#3636;&#3594;&#3634;">
+    <Hierarchy name="department" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="DEPARTMENT_KEY" caption="&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;/&#3626;&#3634;&#3618;&#3623;&#3636;&#3594;&#3634;">
+      <Table name="HR_DIM_DEPARTMENT" schema="KISSUSR1">
+      </Table>
+      <Level name="department_name" visible="true" column="DEPARTMENT_NAME_B" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;/&#3626;&#3634;&#3618;&#3623;&#3636;&#3594;&#3634;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="orgenization" caption="&#3627;&#3609;&#3656;&#3623;&#3618;&#3591;&#3634;&#3609;(&#3588;&#3603;&#3632;/&#3626;&#3635;&#3609;&#3633;&#3585;/&#3626;&#3606;&#3634;&#3610;&#3633;&#3609;)">
+    <Hierarchy name="orgenization" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="DEPARTMENT_KEY" caption="&#3627;&#3609;&#3656;&#3623;&#3618;&#3591;&#3634;&#3609;(&#3588;&#3603;&#3632;/&#3626;&#3635;&#3609;&#3633;&#3585;/&#3626;&#3606;&#3634;&#3610;&#3633;&#3609;)">
+      <Table name="HR_DIM_DEPARTMENT" schema="KISSUSR1">
+      </Table>
+      <Level name="orgenization_name" visible="true" column="ORGENIZATION_NAME_B" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3627;&#3609;&#3656;&#3623;&#3618;&#3591;&#3634;&#3609;(&#3588;&#3603;&#3632;/&#3626;&#3635;&#3609;&#3633;&#3585;/&#3626;&#3606;&#3634;&#3610;&#3633;&#3609;)">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="area" caption="&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+    <Hierarchy name="area" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="DEPARTMENT_KEY" caption="&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+      <Table name="HR_DIM_DEPARTMENT" schema="KISSUSR1">
+      </Table>
+      <Level name="area_name" visible="true" column="AREA_NAME_B" ordinalColumn="AREA_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="position_group" caption="&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;">
+    <Hierarchy name="position_group" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="EMP_LEVEL_TYPE_KEY" caption="&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;">
+      <Table name="HR_DIM_EMP_LEVEL_TYPE" schema="KISSUSR1">
+      </Table>
+      <Level name="position_group_name" visible="true" column="POSITION_NAME" ordinalColumn="POSITION_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="nationality" caption="&#3594;&#3634;&#3623;&#3652;&#3607;&#3618;/&#3594;&#3634;&#3623;&#3605;&#3656;&#3634;&#3591;&#3594;&#3634;&#3605;&#3636; ">
+    <Hierarchy name="nationality" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="NATIONALITY_KEY" caption="&#3594;&#3634;&#3623;&#3652;&#3607;&#3618;/&#3594;&#3634;&#3623;&#3605;&#3656;&#3634;&#3591;&#3594;&#3634;&#3605;&#3636; ">
+      <Table name="HR_DIM_NATIONALITY" schema="KISSUSR1">
+      </Table>
+      <Level name="nationality_name" visible="true" column="NATIONALITY_TYPE_NAME" ordinalColumn="NATIONALITY_TYPE_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3634;&#3623;&#3652;&#3607;&#3618;/&#3594;&#3634;&#3623;&#3605;&#3656;&#3634;&#3591;&#3594;&#3634;&#3605;&#3636; ">
+        <Property name="nationality_code" column="NATIONALITY_TYPE_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3594;&#3634;&#3623;&#3652;&#3607;&#3618;/&#3594;&#3634;&#3623;&#3605;&#3656;&#3634;&#3591;&#3594;&#3634;&#3605;&#3636; ">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="education_level" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="education_level" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="EDUCATION_LEVEL_KEY" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="HR_DIM_EDUCATION_LEVEL" schema="KISSUSR1">
+      </Table>
+      <Level name="education_level_name" visible="true" column="EDUCATION_LEVEL_GROUP_NAME" ordinalColumn="EDUCATION_LEVEL_GROUP_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="age_range" caption="&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;">
+    <Hierarchy name="age_range" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="AGE_RANGE_KEY" caption="&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;">
+      <Table name="HR_DIM_AGE_RANGE" schema="KISSUSR1">
+      </Table>
+      <Level name="age_renge_name" visible="true" column="AGE_RANGE_DESC" ordinalColumn="AGE_RANGE_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="gender" caption="&#3648;&#3614;&#3624;">
+    <Hierarchy name="gender" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="GENDER_KEY" caption="&#3648;&#3614;&#3624;">
+      <Table name="HR_DIM_GENDER" schema="KISSUSR1">
+      </Table>
+      <Level name="gender" visible="true" column="GENDER_NAME" ordinalColumn="GENDER_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3648;&#3614;&#3624;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="level" caption="&#3619;&#3632;&#3604;&#3633;&#3610;">
+    <Hierarchy name="level" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="LEVEL_KEY" caption="&#3619;&#3632;&#3604;&#3633;&#3610;">
+      <Table name="HR_DIM_LEVEL" schema="KISSUSR1">
+      </Table>
+      <Level name="level_name" visible="true" column="LEVEL_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3619;&#3632;&#3604;&#3633;&#3610;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="sub_level" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3618;&#3656;&#3629;&#3618;">
+    <Hierarchy name="sub_level" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="LEVEL_KEY" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3618;&#3656;&#3629;&#3618;">
+      <Table name="HR_DIM_LEVEL" schema="KISSUSR1">
+      </Table>
+      <Level name="sub_level_name" visible="true" column="SUB_LEVEL_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3619;&#3632;&#3604;&#3633;&#3610;&#3618;&#3656;&#3629;&#3618;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="emp_status" caption="&#3626;&#3606;&#3634;&#3609;&#3632;">
+    <Hierarchy name="emp_status" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="EMP_STATUS_KEY" caption="&#3626;&#3606;&#3634;&#3609;&#3632;">
+      <Table name="HR_DIM_EMP_STATUS" schema="KISSUSR1">
+      </Table>
+      <Level name="emp_status_name" visible="true" column="EMP_STATUS_NAME" ordinalColumn="EMP_STATUS_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3626;&#3606;&#3634;&#3609;&#3632;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="study_boundary" caption="&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3651;&#3609;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;/&#3605;&#3656;&#3634;&#3591;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;">
+    <Hierarchy name="study_boundary" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDY_BOUNDARY_KEY" caption="&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3651;&#3609;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;/&#3605;&#3656;&#3634;&#3591;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;">
+      <Table name="HR_DIM_STUDY_BOUNDARY" schema="KISSUSR1">
+      </Table>
+      <Level name="study_boundary_name" visible="true" column="STUDY_BOUNDARY_NAME" ordinalColumn="STUDY_BOUNDARY_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3651;&#3609;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;/&#3605;&#3656;&#3634;&#3591;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="study_type" caption="&#3648;&#3623;&#3621;&#3634;&#3607;&#3637;&#3656;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;">
+    <Hierarchy name="study_type" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDY_TYPE_KEY" caption="&#3648;&#3623;&#3621;&#3634;&#3607;&#3637;&#3656;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;">
+      <Table name="HR_DIM_STUDY_TYPE" schema="KISSUSR1">
+      </Table>
+      <Level name="study_type" visible="true" column="STUDY_TYPE_NAME" ordinalColumn="STUDY_TYPE_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3648;&#3623;&#3621;&#3634;&#3607;&#3637;&#3656;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="training_group" caption="&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+    <Hierarchy name="training_group" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="TRAINING_GROUP_KEY" caption="&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+      <Table name="HR_DIM_TRAINING_GROUP" schema="KISSUSR1">
+      </Table>
+      <Level name="training_group" visible="true" column="TRAINING_GROUP_NAME" ordinalColumn="TRAINING_GROUP_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="training_boundary" caption="&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;&#3651;&#3609;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;/&#3605;&#3656;&#3634;&#3591;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;">
+    <Hierarchy name="training_boundary" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="TRAINING_GROUP_KEY" caption="&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;&#3651;&#3609;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;/&#3605;&#3656;&#3634;&#3591;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;">
+      <Table name="HR_DIM_TRAINING_GROUP" schema="KISSUSR1">
+      </Table>
+      <Level name="training_boundary_name" visible="true" column="TRAINING_BOUNDARY_NAME" ordinalColumn="TRAINING_BOUNDARY_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;&#3651;&#3609;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;/&#3605;&#3656;&#3634;&#3591;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="emp_group_name" caption="&#3585;&#3621;&#3640;&#3656;&#3617;&#3586;&#3629;&#3591;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+    <Hierarchy name="emp_group_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="EMP_LEVEL_TYPE_KEY" caption="&#3585;&#3621;&#3640;&#3656;&#3617;&#3586;&#3629;&#3591;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+      <Table name="HR_DIM_EMP_LEVEL_TYPE" schema="KISSUSR1">
+      </Table>
+      <Level name="emp_group_name" visible="true" column="EMP_GROUP_NAME" ordinalColumn="EMP_GROUP_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3585;&#3621;&#3640;&#3656;&#3617;&#3586;&#3629;&#3591;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="emp_line_group" caption="&#3626;&#3634;&#3618;&#3591;&#3634;&#3609;">
+    <Hierarchy name="emp_line_group_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="EMP_LEVEL_TYPE_KEY" caption="&#3626;&#3634;&#3618;&#3591;&#3634;&#3609;">
+      <Table name="HR_DIM_EMP_LEVEL_TYPE" schema="KISSUSR1">
+      </Table>
+      <Level name="emp_line_group_name" visible="true" column="EMP_LINE_NAME" ordinalColumn="EMP_LINE_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3626;&#3634;&#3618;&#3591;&#3634;&#3609;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="emp_type_name" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+    <Hierarchy name="emp_type_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="EMP_LEVEL_TYPE_KEY" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+      <Table name="HR_DIM_EMP_LEVEL_TYPE" schema="KISSUSR1">
+      </Table>
+      <Level name="emp_type_name" visible="true" column="EMP_TYPE_NAME" ordinalColumn="EMP_TYPE_CODE" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="academic_position_name" caption="&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;&#3607;&#3634;&#3591;&#3623;&#3636;&#3594;&#3634;&#3585;&#3634;&#3619;">
+    <Hierarchy name="academic_position_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="ACADEMIC_POSITION_KEY" caption="&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;&#3607;&#3634;&#3591;&#3623;&#3636;&#3594;&#3634;&#3585;&#3634;&#3619;">
+      <Table name="HR_DIM_ACADEMIC_POSITION" schema="KISSUSR1">
+      </Table>
+      <Level name="academic_position_name" visible="true" column="ACADEMIC_POSITION_NAME" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;&#3607;&#3634;&#3591;&#3623;&#3636;&#3594;&#3634;&#3585;&#3634;&#3619;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="work_group" caption="&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;&#3591;&#3634;&#3609;">
+    <Hierarchy name="work_group" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="WORK_GROUP_KEY" caption="&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;&#3591;&#3634;&#3609;">
+      <Table name="HR_DIM_WORK_GROUP" schema="KISSUSR1">
+      </Table>
+      <Level name="work_group" visible="true" column="WORK_GROUP_NAME" ordinalColumn="WORK_GROUP_CODE" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#3605;&#3635;&#3649;&#3627;&#3609;&#3656;&#3591;&#3591;&#3634;&#3609;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="EMPLOYEE" caption="Personnel" visible="true" cache="false" enabled="true">
+    <Table name="HR_FACT_EMPLOYEE" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_date" name="dim_date" visible="true" foreignKey="MONTH_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="group_code" name="group_code" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="department" name="department" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="orgenization" name="orgenization" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="area" name="area" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="position_group" name="position_group" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="nationality" name="nationality" visible="true" foreignKey="NATIONALITY_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="education_level" name="education_level" visible="true" foreignKey="EDUCATION_LEVEL_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="age_range" name="age_range" visible="true" foreignKey="AGE_RANGE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="gender" name="gender" visible="true" foreignKey="GENDER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="level" name="level" visible="true" foreignKey="LEVEL_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="sub_level" name="sub_level" visible="true" foreignKey="LEVEL_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_status" name="emp_status" visible="true" foreignKey="EMP_STATUS_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_line_group" name="emp_line_group" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_group_name" name="emp_group_name" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_type_name" name="emp_type_name" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_position_name" name="academic_position_name" visible="true" foreignKey="ACADEMIC_POSITION_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="work_group" name="work_group" visible="true" foreignKey="WORK_GROUP_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_emp" column="EMP_KEY" datatype="Integer" formatString="#,###" aggregator="distinct count" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="STUDY" caption="Study" visible="true" cache="false" enabled="true">
+    <Table name="HR_FACT_STUDY" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="group_code" name="group_code" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="department" name="department" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="orgenization" name="orgenization" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="area" name="area" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="education_level" name="education_level" visible="true" foreignKey="EDUCATION_LEVEL_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_group_name" name="emp_group_name" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_type_name" name="emp_type_name" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_line_group" name="emp_line_group" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="position_group" name="position_group" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="study_boundary" name="study_boundary" visible="true" foreignKey="STUDY_BOUNDARY_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="study_type" name="study_type" visible="true" foreignKey="STUDY_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_month" name="dim_month" visible="true" foreignKey="MONTH_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="CALENDAR_NO_OF_STUDY" column="CALENDAR_NO_OF_STUDY" datatype="Numeric" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3611;&#3637;&#3611;&#3598;&#3636;&#3607;&#3636;&#3609;" visible="true">
+    </Measure>
+    <Measure name="CALENDAR_NO_OF_ACCUM_STUDY" column="CALENDAR_NO_OF_ACCUM_STUDY" datatype="Numeric" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3611;&#3637;&#3611;&#3598;&#3636;&#3607;&#3636;&#3609;(&#3626;&#3632;&#3626;&#3617;)" visible="true">
+    </Measure>
+    <Measure name="ACADAMIC_NO_OF_STUDY" column="ACADAMIC_NO_OF_STUDY" datatype="String" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3611;&#3637;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;" visible="true">
+    </Measure>
+    <Measure name="ACADAMIC_NO_OF_ACCUM_STUDY" column="ACADAMIC_NO_OF_ACCUM_STUDY" datatype="Numeric" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3611;&#3637;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;(&#3626;&#3632;&#3626;&#3617;)" visible="true">
+    </Measure>
+    <Measure name="FISCAL_NO_OF_STUDY" column="FISCAL_NO_OF_STUDY" datatype="Numeric" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3611;&#3637;&#3591;&#3610;&#3611;&#3619;&#3632;&#3617;&#3634;&#3603;" visible="true">
+    </Measure>
+    <Measure name="FISCAL_NO_OF_ACCUM_STUDY" column="FISCAL_NO_OF_ACCUM_STUDY" datatype="Numeric" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3621;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3611;&#3637;&#3591;&#3610;&#3611;&#3619;&#3632;&#3617;&#3634;&#3603;(&#3626;&#3632;&#3626;&#3617;)" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="TRAINING" caption="Training" visible="true" cache="true" enabled="true">
+    <Table name="HR_FACT_TRAINING" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_month" name="dim_month" visible="true" foreignKey="MONTH_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="group_code" name="group_code" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="department" name="department" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="orgenization" name="orgenization" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="area" name="area" visible="true" foreignKey="DEPARTMENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_group_name" name="emp_group_name" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_line_group" name="emp_line_group" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="emp_type_name" name="emp_type_name" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_position_name" name="academic_position_name" visible="true" foreignKey="EMP_LEVEL_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="training_group" name="training_group" visible="true" foreignKey="TRAINING_GROUP_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="training_boundary" name="training_boundary" visible="true" foreignKey="TRAINING_GROUP_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="nationality" name="nationality" visible="true" foreignKey="NATIONALITY_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="calendar_no_of_emp" column="CALENDAR_NO_OF_EMP" datatype="Numeric" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3648;&#3586;&#3657;&#3634;&#3619;&#3633;&#3610;&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;&#3611;&#3637;&#3611;&#3598;&#3636;&#3607;&#3636;&#3609;" visible="true">
+    </Measure>
+    <Measure name="acadamic_no_of_emp" column="ACADAMIC_NO_OF_EMP" datatype="Numeric" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3648;&#3586;&#3657;&#3634;&#3619;&#3633;&#3610;&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;&#3611;&#3637;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;" visible="true">
+    </Measure>
+    <Measure name="fisical_no_of_emp" column="FISCAL_NO_OF_EMP" datatype="Numeric" formatString="#,###" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3648;&#3586;&#3657;&#3634;&#3619;&#3633;&#3610;&#3585;&#3634;&#3619;&#3614;&#3633;&#3602;&#3609;&#3634;&#3610;&#3640;&#3588;&#3621;&#3634;&#3585;&#3619;&#3611;&#3637;&#3591;&#3610;&#3611;&#3619;&#3632;&#3617;&#3634;&#3603;" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

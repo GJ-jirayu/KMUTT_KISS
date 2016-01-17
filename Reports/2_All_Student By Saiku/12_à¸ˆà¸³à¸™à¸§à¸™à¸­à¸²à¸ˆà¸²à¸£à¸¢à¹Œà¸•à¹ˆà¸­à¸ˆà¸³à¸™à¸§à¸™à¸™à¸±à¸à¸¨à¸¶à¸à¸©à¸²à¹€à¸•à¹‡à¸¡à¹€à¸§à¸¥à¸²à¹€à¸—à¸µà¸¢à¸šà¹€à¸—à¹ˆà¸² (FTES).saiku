@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="B997278B-5735-A499-851B-1BC9DE4EB49F" type="QM" connection="Student" cube="[fact_teacher_student]" catalog="Student" schema="Student">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true" sortOrder="BASC" sortEvaluationLiteral="[Measures].[no_of_teacher]">
+        <Dimensions>
+          <Dimension name="dim_area" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="dim_area" type="level" node="[dim_area.Area_Name].[Area_Name]" operator="MEMBERS" />
+              <Selection dimension="dim_area" type="level" node="[dim_area.Area_Name].[(All)]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="dim_faculty" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="dim_faculty" type="level" node="[dim_faculty.faclty_name].[faclty_name]" operator="MEMBERS" />
+              <Selection dimension="dim_faculty" type="level" node="[dim_faculty.faclty_name].[(All)]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="Measures">
+            <Inclusions>
+              <Selection dimension="Measures" type="member" node="[Measures].[no_of_student_ftes]" operator="MEMBER" />
+              <Selection dimension="Measures" type="member" node="[Measures].[no_of_teacher]" operator="MEMBER" />
+              <Selection dimension="Measures" type="member" node="[Measures].[student_ftes_per_teacher]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false">
+        <Dimensions>
+          <Dimension name="dim_semester">
+            <Inclusions>
+              <Selection dimension="dim_semester" type="member" node="[dim_semester.semester].[1/2556]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY {[Measures].[no_of_student_ftes], [Measures].[no_of_teacher], [Measures].[student_ftes_per_teacher]} ON COLUMNS,
+NON EMPTY Order(Hierarchize(Union(CrossJoin([dim_area.Area_Name].[Area_Name].Members, [dim_faculty.faclty_name].[faclty_name].Members), Union(CrossJoin([dim_area.Area_Name].[Area_Name].Members, {[dim_faculty.faclty_name].[All dim_faculty.faclty_names]}), Union(CrossJoin({[dim_area.Area_Name].[All dim_area.Area_Names]}, [dim_faculty.faclty_name].[faclty_name].Members), CrossJoin({[dim_area.Area_Name].[All dim_area.Area_Names]}, {[dim_faculty.faclty_name].[All dim_faculty.faclty_names]}))))), [Measures].[no_of_teacher], BASC) ON ROWS
+FROM [fact_teacher_student]
+WHERE {[dim_semester.semester].[1/2556]}</MDX>
+  <Properties>
+    <Property name="saiku.ui.render.mode" value="table" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.automatic_execution" value="true" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+  </Properties>
+</Query>
+

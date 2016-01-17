@@ -1,0 +1,846 @@
+<Schema name="Student">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_area" caption="&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+    <Hierarchy name="Area_Name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="AREA_KEY" caption="&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+      <Table name="DIM_AREA" schema="KISSUSR1">
+      </Table>
+      <Level name="Area_Name" visible="true" column="AREA_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+        <Property name="area_code" column="AREA_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_admission_type" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3623;&#3636;&#3608;&#3637;&#3585;&#3634;&#3619;&#3619;&#3633;&#3610;&#3648;&#3586;&#3657;&#3634;">
+    <Hierarchy name="admission_type_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="ADMISSION_TYPE_KEY" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3623;&#3636;&#3608;&#3637;&#3585;&#3634;&#3619;&#3619;&#3633;&#3610;&#3648;&#3586;&#3657;&#3634;">
+      <Table name="DIM_ADMISSION_TYPE" schema="KISSUSR1">
+      </Table>
+      <Level name="admission_type_name" visible="true" column="ADMISSION_TYPE_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3623;&#3636;&#3608;&#3637;&#3585;&#3634;&#3619;&#3619;&#3633;&#3610;&#3648;&#3586;&#3657;&#3634;">
+        <Property name="admission_type_code" column="ADMISSION_TYPE_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3623;&#3636;&#3608;&#3637;&#3585;&#3634;&#3619;&#3619;&#3633;&#3610;&#3648;&#3586;&#3657;&#3634;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="program_project_name" caption="&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+    <Hierarchy name="program_project_name_th" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="program_project_name_th" visible="true" column="PROGRAM_PROJECT_NAME_TH" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;">
+        <Property name="program_project_code" column="PROGRAM_PROJECT_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+        </Property>
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="program_project_name_eng" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3629;&#3633;&#3591;&#3585;&#3620;&#3625;">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="program_project_name_eng" visible="true" column="PROGRAM_NAME_EN" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3629;&#3633;&#3591;&#3585;&#3620;&#3625;">
+        <Property name="program_project_code" column="PROGRAM_PROJECT_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_program" caption="&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+    <Hierarchy visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="program_name_th" visible="true" column="PROGRAM_NAME_TH" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;">
+        <Property name="program_code_th" column="PROGRAM_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+        </Property>
+      </Level>
+    </Hierarchy>
+    <Hierarchy visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3629;&#3633;&#3591;&#3585;&#3620;&#3625;">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="program_name_eng" visible="true" column="PROGRAM_NAME_EN" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3629;&#3633;&#3591;&#3585;&#3620;&#3625;">
+        <Property name="program_code_en" column="PROGRAM_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_program_type" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+    <Hierarchy name="program_type" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="program_type" visible="true" column="PROGRAM_TYPE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_arrange_type" caption="&#3621;&#3633;&#3585;&#3625;&#3603;&#3632;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+    <Hierarchy name="arrange_type" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3621;&#3633;&#3585;&#3625;&#3603;&#3632;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="arrange_type" visible="true" column="ARRANGE_TYPE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3621;&#3633;&#3585;&#3625;&#3603;&#3632;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_fee_type" caption="&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3611;&#3585;&#3605;&#3636;/Full Free">
+    <Hierarchy name="fee_type" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3611;&#3585;&#3605;&#3636;/Full Free">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="fee_type" visible="true" column="FEE_TYPE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3611;&#3585;&#3605;&#3636;/Full Free">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="ecducation_level_group" caption="&#3585;&#3621;&#3640;&#3656;&#3617;&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="ecducation_level_group" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3585;&#3621;&#3640;&#3656;&#3617;&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="ecducation_level_group" visible="true" column="EDUCATION_LEVEL_GROUP" ordinalColumn="EDUCATION_LEVEL_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3585;&#3621;&#3640;&#3656;&#3617;&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="program_education_level" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="education_level" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="PROGRAM_KEY" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_PROGRAM" schema="KISSUSR1">
+      </Table>
+      <Level name="education_level" visible="true" column="EDUCATION_LEVEL" ordinalColumn="EDUCATION_LEVEL_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_gender" caption="&#3648;&#3614;&#3624;">
+    <Hierarchy name="gender" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="GENDER_KEY" caption="&#3648;&#3614;&#3624;">
+      <Table name="DIM_GENDER" schema="KISSUSR1">
+      </Table>
+      <Level name="gender" visible="true" column="GENDER" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3648;&#3614;&#3624;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_age_range" caption="&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;">
+    <Hierarchy name="age_range_desc" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="AGE_RANGE_KEY" caption="&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;">
+      <Table name="DIM_AGE_RANGE" schema="KISSUSR1">
+      </Table>
+      <Level name="age_range_desc" visible="true" column="AGE_RANGE_DESC" ordinalColumn="AGE_RANGE_KEY" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_schedule_plan" caption="&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;&#3649;&#3621;&#3632;&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="schedule_plan" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="SCHEDULE_PLAN_KEY" caption="&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;&#3649;&#3621;&#3632;&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_SCHEDULE_PLAN" schema="KISSUSR1">
+      </Table>
+      <Level name="schedule_plan" visible="true" column="SCHEDULE_PLAN" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;&#3649;&#3621;&#3632;&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_schedule_type_name" caption="&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;">
+    <Hierarchy name="schedule_type_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="SCHEDULE_PLAN_KEY" caption="&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;">
+      <Table name="DIM_SCHEDULE_PLAN" schema="KISSUSR1">
+      </Table>
+      <Level name="schedule_type_name" visible="true" column="SCHEDULE_TYPE_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;">
+        <Property name="schedule_type_code" column="SCHEDULE_TYPE_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_education_plan_name" caption="&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="education_plan_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="SCHEDULE_PLAN_KEY" caption="&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_SCHEDULE_PLAN" schema="KISSUSR1">
+      </Table>
+      <Level name="education_plan_name" visible="true" column="EDUCATION_PLAN_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        <Property name="education_plan_code" column="EDUCATION_PLAN_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="faculty_name" caption="&#3588;&#3603;&#3632;">
+    <Hierarchy name="thai_faculty_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="FIELD_KEY" caption="&#3588;&#3603;&#3632;">
+      <Table name="DIM_FIELD" schema="KISSUSR1">
+      </Table>
+      <Level name="thai_faculty_name" visible="true" column="FACULTY_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3588;&#3603;&#3632;">
+        <Property name="faculty_code" column="FACULTY_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3588;&#3603;&#3632;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_field" caption="&#3626;&#3634;&#3586;&#3634;">
+    <Hierarchy name="field_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="FIELD_KEY" caption="&#3626;&#3634;&#3586;&#3634;">
+      <Table name="DIM_FIELD" schema="KISSUSR1">
+      </Table>
+      <Level name="field_name" visible="true" column="FIELD_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3626;&#3634;&#3586;&#3634;">
+        <Property name="field_code" column="FIELD_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3626;&#3634;&#3586;&#3634;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_faculty" caption="&#3588;&#3603;&#3632;">
+    <Hierarchy name="faclty_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="FACULTY_KEY" caption="&#3588;&#3603;&#3632;">
+      <Table name="DIM_FACULTY" schema="KISSUSR1">
+      </Table>
+      <Level name="faclty_name" visible="true" column="FACULTY_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3588;&#3603;&#3632;">
+        <Property name="faculty_code" column="FACULTY_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3588;&#3603;&#3632;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_grade_range" caption="&#3594;&#3656;&#3623;&#3591;&#3586;&#3629;&#3591;&#3648;&#3585;&#3619;&#3604;">
+    <Hierarchy name="grade_range_desc" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="GRADE_RANGE_KEY" caption="&#3594;&#3656;&#3623;&#3591;&#3586;&#3629;&#3591;&#3648;&#3585;&#3619;&#3604;">
+      <Table name="DIM_GRADE_RANGE" schema="KISSUSR1">
+      </Table>
+      <Level name="grade_range_desc" visible="true" column="GRADE_RANGE_DESC" ordinalColumn="GRADE_RANGE_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3656;&#3623;&#3591;&#3586;&#3629;&#3591;&#3648;&#3585;&#3619;&#3604;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_study_time" caption="&#3619;&#3632;&#3618;&#3632;&#3648;&#3623;&#3621;&#3634;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="study_time" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDY_TIME_KEY" caption="&#3619;&#3632;&#3618;&#3632;&#3648;&#3623;&#3621;&#3634;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_STUDY_TIME" schema="KISSUSR1">
+      </Table>
+      <Level name="study_time" visible="true" column="STUDY_TIME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3619;&#3632;&#3618;&#3632;&#3648;&#3623;&#3621;&#3634;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_class_year" caption="&#3594;&#3633;&#3657;&#3609;&#3611;&#3637;">
+    <Hierarchy name="class_year" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="CLASS_YEAR_KEY" caption="&#3594;&#3633;&#3657;&#3609;&#3611;&#3637;">
+      <Table name="DIM_CLASS_YEAR" schema="KISSUSR1">
+      </Table>
+      <Level name="class_year" visible="true" column="CLASS_YEAR" ordinalColumn="CLASS_YEAR_KEY" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3633;&#3657;&#3609;&#3611;&#3637;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="academic_year" caption="&#3611;&#3637;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="academic_year" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="SEMESTER_KEY" caption="&#3611;&#3637;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_SEMESTER" schema="KISSUSR1">
+      </Table>
+      <Level name="academic_year" visible="true" column="ACADEMIC_YEAR" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3611;&#3637;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_semester" caption="&#3616;&#3634;&#3588;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="semester" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="SEMESTER_KEY" caption="&#3616;&#3634;&#3588;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_SEMESTER" schema="KISSUSR1">
+      </Table>
+      <Level name="semester" visible="true" column="SEMESTER" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3616;&#3634;&#3588;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_school" caption="&#3650;&#3619;&#3591;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3656;&#3629;&#3609;&#3648;&#3586;&#3657;&#3634;&#3617;&#3592;&#3608;">
+    <Hierarchy name="school_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="SCHOOL_KEY" caption="&#3650;&#3619;&#3591;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3656;&#3629;&#3609;&#3648;&#3586;&#3657;&#3634;&#3617;&#3592;&#3608;">
+      <Table name="DIM_SCHOOL" schema="KISSUSR1">
+      </Table>
+      <Level name="school_name" visible="true" column="SCHOOL_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3650;&#3619;&#3591;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3656;&#3629;&#3609;&#3648;&#3586;&#3657;&#3634;&#3617;&#3592;&#3608;">
+        <Property name="Province" column="PROVINCE" type="String" caption="&#3592;&#3633;&#3591;&#3627;&#3623;&#3633;&#3604;&#3607;&#3637;&#3656;&#3605;&#3633;&#3657;&#3591;&#3586;&#3629;&#3591;&#3650;&#3619;&#3591;&#3648;&#3619;&#3637;&#3618;&#3609;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_education_level" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="education_level_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="EDUCATION_LEVEL_KEY" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_EDUCATION_LEVEL" schema="KISSUSR1">
+      </Table>
+      <Level name="education_level_name" visible="true" column="EDUCATION_LEVEL_NAME" ordinalColumn="EDUCATION_LEVEL_CODE" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        <Property name="education_level_code" column="EDUCATION_LEVEL_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_student_status" caption="&#3626;&#3606;&#3634;&#3609;&#3616;&#3634;&#3614;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="student_status_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_STATUS_KEY" caption="&#3626;&#3606;&#3634;&#3609;&#3616;&#3634;&#3614;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_STUDENT_STATUS" schema="KISSUSR1">
+      </Table>
+      <Level name="student_status_name" visible="true" table="DIM_STUDENT_STATUS" column="STUDENT_STATUS_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3626;&#3606;&#3634;&#3609;&#3616;&#3634;&#3614;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        <Property name="student_status_name" column="STUDENT_STATUS_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3626;&#3606;&#3634;&#3609;&#3616;&#3634;&#3614;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="dim_field_department  name" caption="&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;">
+    <Hierarchy name="dim_field_department  name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="FIELD_KEY" caption="&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;">
+      <Table name="DIM_FIELD" schema="KISSUSR1">
+      </Table>
+      <Level name="department name" visible="true" table="DIM_FIELD" column="DEPARTMENT_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;">
+        <Property name="department _code" column="DEPARTMENT_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="student_name" caption="&#3594;&#3639;&#3656;&#3629;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy name="student_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_KEY" caption="&#3594;&#3639;&#3656;&#3629;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_STUDENT" schema="KISSUSR1">
+      </Table>
+      <Level name="student_name_th" visible="true" table="DIM_STUDENT" column="STUDENT_NAME_TH" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;">
+        <Property name="student_code_th" column="STUDENT_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        </Property>
+      </Level>
+      <Level name="student_name_en" visible="true" table="DIM_STUDENT" column="STUDENT_NAME_EN" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3616;&#3634;&#3625;&#3634;&#3629;&#3633;&#3591;&#3585;&#3620;&#3625;">
+        <Property name="student_code_en" column="STUDENT_CODE" type="String">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="gender" caption="&#3648;&#3614;&#3624;">
+    <Hierarchy name="gender" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_KEY" caption="&#3648;&#3614;&#3624;">
+      <Table name="DIM_STUDENT" schema="KISSUSR1">
+      </Table>
+      <Level name="gender" visible="true" table="DIM_STUDENT" column="GENDER" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3648;&#3614;&#3624;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="foreign_flag" caption="&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3652;&#3607;&#3618;/&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3634;&#3591;&#3594;&#3634;&#3605;&#3636;">
+    <Hierarchy name="foreign_flag" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="FOREIGN_FLAG_KEY" caption="&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3652;&#3607;&#3618;/&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3634;&#3591;&#3594;&#3634;&#3605;&#3636;">
+      <Table name="DIM_FOREIGN_FLAG" schema="KISSUSR1">
+      </Table>
+      <Level name="foreign_flag" visible="true" table="DIM_FOREIGN_FLAG" column="FOREIGN_FLAG" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3652;&#3607;&#3618;/&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3634;&#3591;&#3594;&#3634;&#3605;&#3636;">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="program_project_name_student" caption="&#3594;&#3639;&#3656;&#3629;&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;">
+    <Hierarchy name="program_project_name_student" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_KEY" caption="&#3594;&#3639;&#3656;&#3629;&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;">
+      <Table name="DIM_STUDENT" schema="KISSUSR1">
+      </Table>
+      <Level name="program_project_name_th" visible="true" table="DIM_STUDENT" column="PROGRAM_PROJECT_NAME_TH" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;">
+        <Property name="program_project_code" column="PROGRAM_PROJECT_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;">
+        </Property>
+      </Level>
+      <Level name="program_project_name_en" visible="true" table="DIM_STUDENT" column="PROGRAM_PROJECT_NAME_EN" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3594;&#3639;&#3656;&#3629;&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3629;&#3633;&#3591;&#3585;&#3620;&#3625;">
+        <Property name="program_project_code" column="PROGRAM_PROJECT_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3650;&#3588;&#3619;&#3591;&#3585;&#3634;&#3619;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3616;&#3634;&#3625;&#3634;&#3629;&#3633;&#3591;&#3585;&#3620;&#3625;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="field_name" caption="&#3626;&#3634;&#3586;&#3634;">
+    <Hierarchy name="field_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_KEY" caption="&#3626;&#3634;&#3586;&#3634;">
+      <Table name="DIM_STUDENT" schema="KISSUSR1">
+      </Table>
+      <Level name="field_name" visible="true" table="DIM_STUDENT" column="FIELD_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3626;&#3634;&#3586;&#3634;">
+        <Property name="field_code" column="FIELD_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3626;&#3634;&#3586;&#3634;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="department_name" caption="&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;">
+    <Hierarchy name="department_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_KEY" caption="&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;">
+      <Table name="DIM_STUDENT" schema="KISSUSR1">
+      </Table>
+      <Level name="department_name" visible="true" table="DIM_STUDENT" column="DEPARTMENT_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;">
+        <Property name="department_code" column="DEPARTMENT_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3616;&#3634;&#3588;&#3623;&#3636;&#3594;&#3634;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="faculty_name_student" caption="&#3588;&#3603;&#3632;">
+    <Hierarchy name="faculty_name_student" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_KEY" caption="&#3588;&#3603;&#3632;">
+      <Table name="DIM_STUDENT" schema="KISSUSR1">
+      </Table>
+      <Level name="faculty_name" visible="true" table="DIM_STUDENT" column="FACULTY_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3588;&#3603;&#3632;">
+        <Property name="faculty_code" column="FACULTY_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3588;&#3603;&#3632;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="area_name" caption="&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+    <Hierarchy name="area_name" visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_KEY" caption="&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+      <Table name="DIM_STUDENT" schema="KISSUSR1">
+      </Table>
+      <Level name="area_name" visible="true" column="AREA_NAME" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" caption="&#3614;&#3639;&#3657;&#3609;&#3607;&#3637;&#3656;">
+        <Property name="area_code" column="AREA_CODE" type="String">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="education_level" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+    <Hierarchy visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="STUDENT_KEY" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Table name="DIM_STUDENT" schema="KISSUSR1">
+      </Table>
+      <Level name="education_level" visible="true" column="EDUCATION_LEVEL_NAME" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        <Property name="education_level_code" column="EDUCATION_LEVEL_CODE" type="String" caption="&#3619;&#3627;&#3633;&#3626;&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        </Property>
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="fact_admission" caption="Admission" visible="true" cache="true" enabled="true">
+    <Table name="FACT_ADMISSION" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name" name="faculty_name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field" name="dim_field" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_admission_type" name="dim_admission_type" visible="true" foreignKey="ADMISSION_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program_type" name="dim_program_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_arrange_type" name="dim_arrange_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_fee_type" name="dim_fee_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ecducation_level_group" name="ecducation_level_group" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_education_level" name="program_education_level" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program" name="dim_program" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_project_name" name="program_project_name" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_year" name="academic_year" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_gender" name="dim_gender" caption="&#3648;&#3614;&#3624;" visible="true" foreignKey="GENDER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_candidate" column="NO_OF_CANDIDATE" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3617;&#3633;&#3588;&#3619;" visible="true">
+    </Measure>
+    <Measure name="no_of_qualifier" column="NO_OF_QUALIFIER" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3617;&#3637;&#3626;&#3636;&#3607;&#3608;&#3636;&#3660;&#3648;&#3586;&#3657;&#3634;&#3624;&#3638;&#3585;&#3625;&#3634;" visible="true">
+    </Measure>
+    <Measure name="no_of_reported" column="NO_OF_REPORTED" aggregator="sum" caption="&#3612;&#3641;&#3657;&#3617;&#3634;&#3619;&#3634;&#3618;&#3591;&#3634;&#3609;&#3605;&#3633;&#3623;" visible="true">
+    </Measure>
+    <Measure name="no_of_registered" column="NO_OF_REGISTERED" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3621;&#3591;&#3607;&#3632;&#3648;&#3610;&#3637;&#3618;&#3609;" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="fact_new_student" caption="New Student" visible="true" cache="true" enabled="true">
+    <Table name="FACT_NEW_STUDENT" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name" name="faculty_name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field" name="dim_field" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_admission_type" name="dim_admission_type" visible="true" foreignKey="ADMISSION_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program_type" name="dim_program_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_arrange_type" name="dim_arrange_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_fee_type" name="dim_fee_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ecducation_level_group" name="ecducation_level_group" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_education_level" name="program_education_level" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program" name="dim_program" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_project_name" name="program_project_name" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_year" name="academic_year" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_gender" name="dim_gender" visible="true" foreignKey="GENDER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_age_range" name="dim_age_range" visible="true" foreignKey="AGE_RANGE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_plan" name="dim_schedule_plan" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_type_name" name="dim_schedule_type_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_education_plan_name" name="dim_education_plan_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_student" column="NO_OF_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;" visible="true">
+    </Measure>
+    <CalculatedMember name="%new_student_by_program_type_compare_all" formatString="Percent" caption="% &#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3627;&#3621;&#3633;&#3585;&#3626;&#3640;&#3605;&#3619;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_program_type.program_type].currentmember, [Measures].[no_of_student] ) / ( [dim_program_type.program_type].[All dim_program_type.program_types], [Measures].[no_of_student] )" dimension="Measures" visible="false">
+    </CalculatedMember>
+    <CalculatedMember name="%new_student_by_admission_type_compare_all" formatString="Percent" caption="% &#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3623;&#3636;&#3608;&#3637;&#3585;&#3634;&#3619;&#3619;&#3633;&#3610;&#3648;&#3586;&#3657;&#3634;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula=" ( [dim_admission_type.admission_type_name].currentmember, [Measures].[no_of_student] ) / ( [dim_admission_type.admission_type_name].[All dim_admission_type.admission_type_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%new_student_by_age_range_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_age_range.age_range_desc].currentmember, [Measures].[no_of_student] ) / ( [dim_age_range.age_range_desc].[All dim_age_range.age_range_descs], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%new_student_by_arrange_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3621;&#3633;&#3585;&#3625;&#3603;&#3632;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_arrange_type.arrange_type].currentmember, [Measures].[no_of_student] ) / ( [dim_arrange_type.arrange_type].[All dim_arrange_type.arrange_types], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%new_student_by_schedule_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_schedule_type_name.schedule_type_name].currentmember, [Measures].[no_of_student] ) / ( [dim_schedule_type_name.schedule_type_name].[All dim_schedule_type_name.schedule_type_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%new_student_by_fee_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3619;&#3641;&#3611;&#3649;&#3610;&#3610;&#3588;&#3656;&#3634;&#3608;&#3619;&#3619;&#3617;&#3648;&#3609;&#3637;&#3618;&#3617;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula=" ( [dim_fee_type.fee_type].currentmember, [Measures].[no_of_student] ) / ( [dim_fee_type.fee_type].[All dim_fee_type.fee_types], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%new_student_by_gender_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3648;&#3614;&#3624;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_gender.gender].currentmember, [Measures].[no_of_student] ) / ( [dim_gender.gender].[All dim_gender.genders], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="fact_pre_admission_grade" caption="Pre Admission Grade" visible="true" cache="true" enabled="true">
+    <Table name="FACT_PRE_ADMISSION_GRADE" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field" name="dim_field" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_admission_type" name="dim_admission_type" visible="true" foreignKey="ADMISSION_TYPE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program_type" name="dim_program_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_arrange_type" name="dim_arrange_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_fee_type" name="dim_fee_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ecducation_level_group" name="ecducation_level_group" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_education_level" name="program_education_level" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program" name="dim_program" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_project_name" name="program_project_name" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_year" name="academic_year" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_grade_range" name="dim_grade_range" visible="true" foreignKey="GRADE_RANGE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_school" name="dim_school" visible="true" foreignKey="SCHOOL_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name" name="faculty_name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_student" column="NO_OF_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;" visible="true">
+    </Measure>
+    <CalculatedMember name="%new_student_by_grade_range_compare_all" formatString="Percent" caption="%&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3594;&#3656;&#3623;&#3591;&#3648;&#3585;&#3619;&#3604;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_grade_range.grade_range_desc].currentmember, [Measures].[no_of_student] ) / ( [dim_grade_range.grade_range_desc].[All dim_grade_range.grade_range_descs], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%new_student_by_faculty_compare_all" formatString="Percent" caption="%&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3588;&#3603;&#3632;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [faculty_name.thai_faculty_name].currentmember, [Measures].[no_of_student] ) / ( [faculty_name.thai_faculty_name].[All faculty_name.thai_faculty_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="fact_actual_plan" caption="Actual Plan" visible="true" cache="true" enabled="true">
+    <Table name="FACT_ACTUAL_PLAN" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name" name="faculty_name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field" name="dim_field" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_education_level" name="dim_education_level" visible="true" foreignKey="EDUCATION_LEVEL_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field_department  name" name="dim_field_department  name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_actual_student" column="NO_OF_ACTUAL_NEW_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3592;&#3619;&#3636;&#3591;" visible="true">
+    </Measure>
+    <Measure name="no_of_plan_student" column="NO_OF_PLAN_NEW_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3605;&#3634;&#3617;&#3649;&#3612;&#3609;" visible="true">
+    </Measure>
+    <Measure name="no_of_actual_graduate" column="NO_OF_ACTUAL_GRADUATE" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3592;&#3619;&#3636;&#3591;" visible="true">
+    </Measure>
+    <Measure name="no_of_plan_graduate" column="NO_OF_PLAN_GRADUATE" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3649;&#3612;&#3609;" visible="true">
+    </Measure>
+    <Measure name="no_of_actual_all_student" column="NO_OF_ACTUAL_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;&#3605;&#3634;&#3617;&#3592;&#3619;&#3636;&#3591;" visible="true">
+    </Measure>
+    <Measure name="no_of_plan_all_student" column="NO_OF_PLAN_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;&#3605;&#3634;&#3617;&#3649;&#3612;&#3609;" visible="true">
+    </Measure>
+    <CalculatedMember name="%actual_student_compare_plan_student" formatString="Percent" caption="%&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3651;&#3627;&#3617;&#3656;&#3592;&#3619;&#3636;&#3591;&#3648;&#3607;&#3637;&#3618;&#3610;&#3649;&#3612;&#3609;" formula="[Measures].[no_of_actual_student] / [Measures].[no_of_plan_student]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%actual_all_student_compare_plan" formatString="Percent" caption="%&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;&#3592;&#3619;&#3636;&#3591;&#3648;&#3607;&#3637;&#3618;&#3610;&#3649;&#3612;&#3609;" formula="[Measures].[no_of_actual_all_student] / [Measures].[no_of_plan_all_student]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%actual_graduate_compare_plan" formatString="Percent" caption="%&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3592;&#3619;&#3636;&#3591;&#3648;&#3607;&#3637;&#3618;&#3610;&#3649;&#3612;&#3609;" formula="[Measures].[no_of_actual_graduate] / [Measures].[no_of_plan_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="fact_all_student" caption="All Student" visible="true" cache="true" enabled="true">
+    <Table name="FACT_ALL_STUDENT" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_field" name="dim_field" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program" name="dim_program" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_gender" name="dim_gender" visible="true" foreignKey="GENDER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_study_time" name="dim_study_time" visible="true" foreignKey="STUDY_TIME_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_class_year" name="dim_class_year" visible="true" foreignKey="CLASS_YEAR_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_plan" name="dim_schedule_plan" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_student_status" name="dim_student_status" visible="true" foreignKey="STUDENT_STATUS_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_age_range" name="dim_age_range" visible="true" foreignKey="AGE_RANGE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name" name="faculty_name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_project_name" name="program_project_name" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program_type" name="dim_program_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_arrange_type" name="dim_arrange_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_fee_type" name="dim_fee_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_education_level" name="program_education_level" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ecducation_level_group" name="ecducation_level_group" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_type_name" name="dim_schedule_type_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_education_plan_name" name="dim_education_plan_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_year" name="academic_year" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field_department  name" name="dim_field_department  name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_student" column="NO_OF_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" visible="true">
+    </Measure>
+    <Measure name="no_of_registered_student" column="NO_OF_REGISTERED_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3637;&#3656;&#3621;&#3591;&#3607;&#3632;&#3648;&#3610;&#3637;&#3618;&#3609;" visible="true">
+    </Measure>
+    <Measure name="on_of_student_sch" column="NO_OF_STUDENT_SCH" datatype="Numeric" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3627;&#3609;&#3656;&#3623;&#3618;&#3585;&#3636;&#3605;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634; (SCH) " visible="true">
+    </Measure>
+    <Measure name="no_of_student_ftes" column="NO_OF_STUDENT_FTES" datatype="Numeric" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3605;&#3655;&#3617;&#3648;&#3623;&#3621;&#3634; (FTES)" visible="true">
+    </Measure>
+    <CalculatedMember name="%student_by_gender_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3648;&#3614;&#3624;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_gender.gender].currentmember, [Measures].[no_of_student] ) / ( [dim_gender.gender].[All dim_gender.genders], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_age_range_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_age_range.age_range_desc].currentmember, [Measures].[no_of_student] ) / ( [dim_age_range.age_range_desc].[All dim_age_range.age_range_descs], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_arrange_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3621;&#3633;&#3585;&#3625;&#3603;&#3632;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_arrange_type.arrange_type].currentmember, [Measures].[no_of_student] ) / ( [dim_arrange_type.arrange_type].[All dim_arrange_type.arrange_types], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_fee_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3611;&#3585;&#3605;&#3636;/Full Free&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_fee_type.fee_type].currentmember, [Measures].[no_of_student] ) / ( [dim_fee_type.fee_type].[All dim_fee_type.fee_types], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_education_plan_name_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_education_plan_name.education_plan_name].currentmember, [Measures].[no_of_student] ) / ( [dim_education_plan_name.education_plan_name].[All dim_education_plan_name.education_plan_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_student_status_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3626;&#3606;&#3634;&#3609;&#3616;&#3634;&#3614;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_student_status.student_status_name].currentmember, [Measures].[no_of_student] ) / ( [dim_student_status.student_status_name].[All dim_student_status.student_status_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_schedule_type_name_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_schedule_type_name.schedule_type_name].currentmember, [Measures].[no_of_student] ) / ( [dim_schedule_type_name.schedule_type_name].[All dim_schedule_type_name.schedule_type_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="fact_all_student_daily_update" caption="All Student Daily Update" visible="true" cache="true" enabled="true">
+    <Table name="FACT_ALL_STUDENT_DAILY_UPDATE" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_field" name="dim_field" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program" name="dim_program" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_gender" name="dim_gender" visible="true" foreignKey="GENDER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_study_time" name="dim_study_time" visible="true" foreignKey="STUDY_TIME_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_class_year" name="dim_class_year" visible="true" foreignKey="CLASS_YEAR_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_plan" name="dim_schedule_plan" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_student_status" name="dim_student_status" visible="true" foreignKey="STUDENT_STATUS_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_age_range" name="dim_age_range" visible="true" foreignKey="AGE_RANGE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name" name="faculty_name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_project_name" name="program_project_name" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program_type" name="dim_program_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_arrange_type" name="dim_arrange_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_fee_type" name="dim_fee_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_education_level" name="program_education_level" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ecducation_level_group" name="ecducation_level_group" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_type_name" name="dim_schedule_type_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_education_plan_name" name="dim_education_plan_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_year" name="academic_year" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field_department  name" name="dim_field_department  name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_student" column="NO_OF_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" visible="true">
+    </Measure>
+    <Measure name="no_of_registered_student" column="NO_OF_REGISTERED_STUDENT" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3637;&#3656;&#3621;&#3591;&#3607;&#3632;&#3648;&#3610;&#3637;&#3618;&#3609;" visible="true">
+    </Measure>
+    <Measure name="on_of_student_sch" column="NO_OF_STUDENT_SCH" datatype="Numeric" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3627;&#3609;&#3656;&#3623;&#3618;&#3585;&#3636;&#3605;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634; (SCH) " visible="true">
+    </Measure>
+    <Measure name="no_of_student_ftes" column="NO_OF_STUDENT_FTES" datatype="Numeric" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3605;&#3655;&#3617;&#3648;&#3623;&#3621;&#3634; (FTES)" visible="true">
+    </Measure>
+    <CalculatedMember name="%student_by_gender_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3648;&#3614;&#3624;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_gender.gender].currentmember, [Measures].[no_of_student] ) / ( [dim_gender.gender].[All dim_gender.genders], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_age_range_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3594;&#3656;&#3623;&#3591;&#3629;&#3634;&#3618;&#3640;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_age_range.age_range_desc].currentmember, [Measures].[no_of_student] ) / ( [dim_age_range.age_range_desc].[All dim_age_range.age_range_descs], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_arrange_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3621;&#3633;&#3585;&#3625;&#3603;&#3632;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_arrange_type.arrange_type].currentmember, [Measures].[no_of_student] ) / ( [dim_arrange_type.arrange_type].[All dim_arrange_type.arrange_types], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_fee_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3619;&#3641;&#3611;&#3649;&#3610;&#3610;&#3588;&#3656;&#3634;&#3608;&#3619;&#3619;&#3617;&#3648;&#3609;&#3637;&#3618;&#3617;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_fee_type.fee_type].currentmember, [Measures].[no_of_student] ) / ( [dim_fee_type.fee_type].[All dim_fee_type.fee_types], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_education_plan_name_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3649;&#3612;&#3609;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_education_plan_name.education_plan_name].currentmember, [Measures].[no_of_student] ) / ( [dim_education_plan_name.education_plan_name].[All dim_education_plan_name.education_plan_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_student_status_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3626;&#3606;&#3634;&#3609;&#3616;&#3634;&#3614;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_student_status.student_status_name].currentmember, [Measures].[no_of_student] ) / ( [dim_student_status.student_status_name].[All dim_student_status.student_status_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%student_by_schedule_type_name_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_schedule_type_name.schedule_type_name].currentmember, [Measures].[no_of_student] ) / ( [dim_schedule_type_name.schedule_type_name].[All dim_schedule_type_name.schedule_type_names], [Measures].[no_of_student] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="fact_teacher_student" caption="Teacher Student" visible="true" cache="true" enabled="true">
+    <Table name="FACT_TEACHER_STUDENT" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_faculty" name="dim_faculty" visible="true" foreignKey="FACULTY_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_teacher" column="NO_OF_TEACHER" datatype="Integer" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3629;&#3634;&#3592;&#3634;&#3619;&#3618;&#3660;" visible="true">
+    </Measure>
+    <Measure name="no_of_student_ftes" column="NO_OF_STUDENT_FTES" datatype="Numeric" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3605;&#3655;&#3617;&#3648;&#3623;&#3621;&#3634; (FTES)" visible="true">
+    </Measure>
+    <CalculatedMember name="student_ftes_per_teacher" formatString="0.##" caption="&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3605;&#3655;&#3617;&#3648;&#3623;&#3621;&#3634; (FTES) &#3605;&#3656;&#3629;&#3592;&#3635;&#3609;&#3623;&#3609;&#3629;&#3634;&#3592;&#3634;&#3619;&#3618;&#3660;" formula="[Measures].[no_of_student_ftes]/[Measures].[no_of_teacher]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="fact_graduate" caption="Graduate" visible="true" cache="true" enabled="true">
+    <Table name="FACT_GRADUATE" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field" name="dim_field" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program" name="dim_program" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_gender" name="dim_gender" visible="true" foreignKey="GENDER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_plan" name="dim_schedule_plan" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_study_time" name="dim_study_time" visible="true" foreignKey="STUDY_TIME_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_grade_range" name="dim_grade_range" visible="true" foreignKey="GRADE_RANGE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_arrange_type" name="dim_arrange_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_project_name" name="program_project_name" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program_type" name="dim_program_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_fee_type" name="dim_fee_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ecducation_level_group" name="ecducation_level_group" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_education_level" name="program_education_level" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_type_name" name="dim_schedule_type_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_education_plan_name" name="dim_education_plan_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name" name="faculty_name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_year" name="academic_year" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field_department  name" name="dim_field_department  name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_graduate" column="NO_OF_GRADUATE" datatype="Integer" aggregator="sum" caption="&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;" visible="true">
+    </Measure>
+    <Measure name="no_of_first_honor" column="NO_OF_FIRST_HONOR" datatype="Integer" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3629;&#3633;&#3609;&#3604;&#3633;&#3610;1" visible="true">
+    </Measure>
+    <Measure name="no_of_second_honor" column="NO_OF_SECOND_HONOR" datatype="Integer" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3629;&#3633;&#3609;&#3604;&#3633;&#3610;2" visible="true">
+    </Measure>
+    <Measure name="no_of_total_honor" column="NO_OF_TOTAL_HONOR" datatype="Integer" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" visible="true">
+    </Measure>
+    <CalculatedMember name="%graduate_by_arrange_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3621;&#3633;&#3585;&#3625;&#3603;&#3632;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_arrange_type.arrange_type].currentmember, [Measures].[no_of_graduate] ) / ( [dim_arrange_type.arrange_type].[All dim_arrange_type.arrange_types], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_grade_range_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3594;&#3656;&#3623;&#3591;&#3586;&#3629;&#3591;&#3648;&#3585;&#3619;&#3604;&#3612;&#3621;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_grade_range.grade_range_desc].currentmember, [Measures].[no_of_graduate] ) / ( [dim_grade_range.grade_range_desc].[All dim_grade_range.grade_range_descs], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_gender_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3648;&#3614;&#3624;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_gender.gender].currentmember, [Measures].[no_of_graduate] ) / ( [dim_gender.gender].[All dim_gender.genders], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_schedule_type_name_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_schedule_type_name.schedule_type_name].currentmember, [Measures].[no_of_graduate] ) / ( [dim_schedule_type_name.schedule_type_name].[All dim_schedule_type_name.schedule_type_names], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_fee_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3619;&#3641;&#3611;&#3649;&#3610;&#3610;&#3588;&#3656;&#3634;&#3608;&#3619;&#3619;&#3617;&#3648;&#3609;&#3637;&#3618;&#3617;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_fee_type.fee_type].currentmember, [Measures].[no_of_graduate] ) / ( [dim_fee_type.fee_type].[All dim_fee_type.fee_types], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_education_level_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula=" ( [program_education_level.education_level].currentmember, [Measures].[no_of_graduate] ) / ( [program_education_level.education_level].[All program_education_level.education_levels], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name=" %no_of_first_honor_compare_no_of_graduate" formatString="Percent" caption="%&#3612;&#3641;&#3657;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3629;&#3633;&#3609;&#3604;&#3633;&#3610;1&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="[Measures].[no_of_first_honor]/[Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%no_of_second_honor_compare_no_of_graduate" formatString="Percent" caption="%&#3612;&#3641;&#3657;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3629;&#3633;&#3609;&#3604;&#3633;&#3610;2&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="[Measures].[no_of_second_honor]/[Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%no_of_total_honor_compare_no_of_graduate" formatString="Percent" caption="%&#3612;&#3641;&#3657;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="[Measures].[no_of_total_honor]/[Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="fact_graduate_work" caption="Graduate Work" visible="true" cache="true" enabled="true">
+    <Table name="FACT_GRADUATE_WORK" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="student_name" name="student_name" visible="true" foreignKey="STUDENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="gender" name="gender" visible="true" foreignKey="STUDENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="academic_year" caption="&#3611;&#3637;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+      <Hierarchy visible="true" hasAll="true" allMemberCaption="&#3619;&#3623;&#3617;" primaryKey="ACADEMIC_YEAR">
+        <Level name="academic_year" visible="true" table="FACT_GRADUATE_WORK" column="ACADEMIC_YEAR" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" caption="&#3611;&#3637;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <DimensionUsage source="foreign_flag" name="foreign_flag" visible="true" foreignKey="FOREIGN_FLAG_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_project_name_student" name="program_project_name_student" visible="true" foreignKey="STUDENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="field_name" name="field_name" visible="true" foreignKey="STUDENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="department_name" name="department_name" visible="true" foreignKey="STUDENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name_student" name="faculty_name_student" visible="true" foreignKey="STUDENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="area_name" name="area_name" visible="true" foreignKey="STUDENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="education_level" name="education_level" visible="true" foreignKey="STUDENT_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_employ" column="NO_OF_EMPLOY" datatype="Numeric" formatString="####" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3617;&#3637;&#3591;&#3634;&#3609;&#3607;&#3635;" visible="true">
+    </Measure>
+    <Measure name="no_of_graduate" column="NO_OF_GRADUATE" datatype="Numeric" formatString="####" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;" visible="true">
+    </Measure>
+    <Measure name="no_of_study" column="NO_OF_STUDY" datatype="Numeric" formatString="####" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;" visible="true">
+    </Measure>
+    <Measure name="no_of_unemploy" column="NO_OF_UNEMPLOY" datatype="Numeric" formatString="####" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3618;&#3633;&#3591;&#3652;&#3617;&#3656;&#3617;&#3637;&#3591;&#3634;&#3609;&#3607;&#3635;&#3649;&#3621;&#3632;&#3629;&#3639;&#3656;&#3609;&#3654;" visible="true">
+    </Measure>
+    <CalculatedMember name="%no_of_employ_compare_no_of_graduate" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3617;&#3637;&#3591;&#3634;&#3609;&#3607;&#3635;&#3648;&#3607;&#3637;&#3618;&#3610;&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;" formula="[Measures].[no_of_employ] / [Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%no_of_study_compare_no_of_graduate" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3656;&#3629;&#3648;&#3607;&#3637;&#3618;&#3610;&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;" formula="[Measures].[no_of_study] / [Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%no_of_unemploy_compare_no_of_graduate" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3652;&#3617;&#3656;&#3617;&#3637;&#3591;&#3634;&#3609;&#3607;&#3635;&#3649;&#3621;&#3632;&#3629;&#3639;&#3656;&#3609;&#3654;&#3648;&#3607;&#3637;&#3618;&#3610;&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;" formula="[Measures].[no_of_unemploy] / [Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+  <Cube name="fact_graduate_daily_update" caption="Graduate Daily Update" visible="true" cache="true" enabled="true">
+    <Table name="FACT_GRADUATE_DAILY_UPDATE" schema="KISSUSR1">
+    </Table>
+    <DimensionUsage source="dim_area" name="dim_area" visible="true" foreignKey="AREA_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field" name="dim_field" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program" name="dim_program" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_gender" name="dim_gender" visible="true" foreignKey="GENDER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_plan" name="dim_schedule_plan" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_semester" name="dim_semester" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_study_time" name="dim_study_time" visible="true" foreignKey="STUDY_TIME_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_grade_range" name="dim_grade_range" visible="true" foreignKey="GRADE_RANGE_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_arrange_type" name="dim_arrange_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_project_name" name="program_project_name" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_program_type" name="dim_program_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_fee_type" name="dim_fee_type" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="ecducation_level_group" name="ecducation_level_group" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="program_education_level" name="program_education_level" visible="true" foreignKey="PROGRAM_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_schedule_type_name" name="dim_schedule_type_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_education_plan_name" name="dim_education_plan_name" visible="true" foreignKey="SCHEDULE_PLAN_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="faculty_name" name="faculty_name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="academic_year" name="academic_year" visible="true" foreignKey="SEMESTER_KEY" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="dim_field_department  name" name="dim_field_department  name" visible="true" foreignKey="FIELD_KEY" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="no_of_graduate" column="NO_OF_GRADUATE" datatype="Numeric" formatString="####" aggregator="sum" caption="&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;" visible="true">
+    </Measure>
+    <Measure name="no_of_first_honor " column="NO_OF_FIRST_HONOR" datatype="Numeric" formatString="####" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3629;&#3633;&#3609;&#3604;&#3633;&#3610;1" visible="true">
+    </Measure>
+    <Measure name="no_of_second_honor" column="NO_OF_SECOND_HONOR" datatype="Numeric" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3629;&#3633;&#3609;&#3604;&#3633;&#3610;2" visible="true">
+    </Measure>
+    <Measure name="no_of_total_honor" column="NO_OF_TOTAL_HONOR" datatype="Numeric" formatString="####" aggregator="sum" caption="&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" visible="true">
+    </Measure>
+    <CalculatedMember name="%graduate_by_arrange_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3621;&#3633;&#3585;&#3625;&#3603;&#3632;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3627;&#3621;&#3633;&#3585;&#3626;&#3641;&#3605;&#3619;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_arrange_type.arrange_type].currentmember, [Measures].[no_of_graduate] ) / ( [dim_arrange_type.arrange_type].[All dim_arrange_type.arrange_types], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_grade_range_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3609;&#3633;&#3585;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3594;&#3656;&#3623;&#3591;&#3586;&#3629;&#3591;&#3648;&#3585;&#3619;&#3604;&#3612;&#3621;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_grade_range.grade_range_desc].currentmember, [Measures].[no_of_graduate] ) / ( [dim_grade_range.grade_range_desc].[All dim_grade_range.grade_range_descs], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_gender_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3648;&#3614;&#3624;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_gender.gender].currentmember, [Measures].[no_of_graduate] ) / ( [dim_gender.gender].[All dim_gender.genders], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_schedule_type_name_compare_all" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3648;&#3623;&#3621;&#3634;&#3651;&#3609;&#3585;&#3634;&#3619;&#3592;&#3633;&#3604;&#3585;&#3634;&#3619;&#3648;&#3619;&#3637;&#3618;&#3609;&#3585;&#3634;&#3619;&#3626;&#3629;&#3609;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_schedule_type_name.schedule_type_name].currentmember, [Measures].[no_of_graduate] ) / ( [dim_schedule_type_name.schedule_type_name].[All dim_schedule_type_name.schedule_type_names], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_fee_type_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3619;&#3641;&#3611;&#3649;&#3610;&#3610;&#3588;&#3656;&#3634;&#3608;&#3619;&#3619;&#3617;&#3648;&#3609;&#3637;&#3618;&#3617;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="( [dim_fee_type.fee_type].currentmember, [Measures].[no_of_graduate] ) / ( [dim_fee_type.fee_type].[All dim_fee_type.fee_types], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%graduate_by_education_level_compare_all" formatString="Percent" caption="%&#3592;&#3635;&#3609;&#3623;&#3609;&#3612;&#3641;&#3657;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3605;&#3634;&#3617;&#3619;&#3632;&#3604;&#3633;&#3610;&#3585;&#3634;&#3619;&#3624;&#3638;&#3585;&#3625;&#3634;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula=" ( [program_education_level.education_level].currentmember, [Measures].[no_of_graduate] ) / ( [program_education_level.education_level].[All program_education_level.education_levels], [Measures].[no_of_graduate] )" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%no_of_first_honor_compare_no_of_graduate" formatString="Percent" caption="%&#3612;&#3641;&#3657;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3629;&#3633;&#3609;&#3604;&#3633;&#3610;1&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="[Measures].[no_of_first_honor]/[Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%no_of_second_honor_compare_no_of_graduate" formatString="Percent" caption="%&#3612;&#3641;&#3657;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3629;&#3633;&#3609;&#3604;&#3633;&#3610;2&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="[Measures].[no_of_second_honor]/[Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+    <CalculatedMember name="%no_of_total_honor_compare_no_of_graduate" formatString="Percent" caption="%&#3612;&#3641;&#3657;&#3607;&#3637;&#3656;&#3652;&#3604;&#3657;&#3619;&#3633;&#3610;&#3648;&#3585;&#3637;&#3618;&#3619;&#3605;&#3636;&#3609;&#3636;&#3618;&#3617;&#3648;&#3607;&#3637;&#3618;&#3610;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;" formula="[Measures].[no_of_total_honor]/[Measures].[no_of_graduate]" dimension="Measures" visible="true">
+    </CalculatedMember>
+  </Cube>
+</Schema>

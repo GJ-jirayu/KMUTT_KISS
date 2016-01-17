@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="BD5A7D9B-8E92-B4BA-908D-8880E738643C" type="QM" connection="Personnel" cube="[Study]" catalog="Personnel" schema="Personnel">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="area" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="area" type="level" node="[area].[area_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="orgenization" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="orgenization" type="level" node="[orgenization].[orgenization_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="department" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="department" type="level" node="[department].[department_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="education_level" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="education_level" type="level" node="[education_level].[education_level_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="study_type" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="study_type" type="level" node="[study_type].[study_type]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="study_boundary" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="study_boundary" type="level" node="[study_boundary].[study_boundary_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="Measures" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="Measures" type="member" node="[Measures].[calendar_no_of_study]" operator="MEMBER" />
+              <Selection dimension="Measures" type="member" node="[Measures].[calendar_no_of_accum_study]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false">
+        <Dimensions>
+          <Dimension name="emp_type">
+            <Inclusions>
+              <Selection dimension="emp_type" type="member" node="[emp_type].[ข้าราชการ]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="dim_date">
+            <Inclusions>
+              <Selection dimension="dim_date" type="member" node="[dim_date.calendar].[2556]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY Hierarchize(Union(CrossJoin([education_level].[education_level_name].Members, CrossJoin([study_type].[study_type].Members, CrossJoin([study_boundary].[study_boundary_name].Members, {[Measures].[calendar_no_of_study]}))), CrossJoin([education_level].[education_level_name].Members, CrossJoin([study_type].[study_type].Members, CrossJoin([study_boundary].[study_boundary_name].Members, {[Measures].[calendar_no_of_accum_study]}))))) ON COLUMNS,
+NON EMPTY CrossJoin([area].[area_name].Members, CrossJoin([orgenization].[orgenization_name].Members, [department].[department_name].Members)) ON ROWS
+FROM [Study]
+WHERE CrossJoin({[emp_type].[ข้าราชการ]}, {[dim_date.calendar].[2556]})</MDX>
+  <Totals />
+  <Properties>
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+  </Properties>
+</Query>
+

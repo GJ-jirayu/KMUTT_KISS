@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="0BED6098-6B79-87D2-8E73-69F786983C31" type="QM" connection="Finance" cube="[Budget_Actual]" catalog="Finance" schema="Finance">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="orgenization_name" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="orgenization_name" type="level" node="[orgenization_name].[orgenization_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="Measures" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="Measures" type="member" node="[Measures].[ACTUAL_AMOUNT]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="fund_name" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="fund_name" type="level" node="[fund_name].[fund_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false" />
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY CrossJoin({[Measures].[ACTUAL_AMOUNT]}, [fund_name].[fund_name].Members) ON COLUMNS,
+NON EMPTY {Hierarchize({[orgenization_name].[orgenization_name].Members})} ON ROWS
+FROM [Budget_Actual]</MDX>
+  <Totals />
+  <Properties>
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+  </Properties>
+</Query>
+

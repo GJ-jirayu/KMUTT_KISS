@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="EAE5165E-C3F1-7D78-9CF3-C358B873BB72" type="QM" connection="Student" cube="[fact_all_student]" catalog="Student" schema="Student">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="dim_area" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="dim_area" type="level" node="[dim_area.Area_Name].[(All)]" operator="MEMBERS" />
+              <Selection dimension="dim_area" type="level" node="[dim_area.Area_Name].[Area_Name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="faculty_name" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="faculty_name" type="level" node="[faculty_name.thai_faculty_name].[(All)]" operator="MEMBERS" />
+              <Selection dimension="faculty_name" type="level" node="[faculty_name.thai_faculty_name].[thai_faculty_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="dim_field" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="dim_field" type="level" node="[dim_field.field_name].[(All)]" operator="MEMBERS" />
+              <Selection dimension="dim_field" type="level" node="[dim_field.field_name].[field_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="dim_class_year" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="dim_class_year" type="level" node="[dim_class_year.class_year].[(All)]" operator="MEMBERS" />
+              <Selection dimension="dim_class_year" type="level" node="[dim_class_year.class_year].[class_year]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="Measures">
+            <Inclusions>
+              <Selection dimension="Measures" type="member" node="[Measures].[no_of_student]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false">
+        <Dimensions>
+          <Dimension name="dim_student_status">
+            <Inclusions>
+              <Selection dimension="dim_student_status" type="level" node="[dim_student_status.student_status_name].[(All)]" operator="MEMBERS" />
+              <Selection dimension="dim_student_status" type="member" node="[dim_student_status.student_status_name].[ให้พัก]" operator="MEMBER" />
+              <Selection dimension="dim_student_status" type="member" node="[dim_student_status.student_status_name].[N/A]" operator="MEMBER" />
+              <Selection dimension="dim_student_status" type="member" node="[dim_student_status.student_status_name].[ลาพัก]" operator="MEMBER" />
+              <Selection dimension="dim_student_status" type="member" node="[dim_student_status.student_status_name].[ปกติ]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="dim_semester">
+            <Inclusions>
+              <Selection dimension="dim_semester" type="member" node="[dim_semester.semester].[1/2556]" operator="MEMBER" />
+              <Selection dimension="dim_semester" type="level" node="[dim_semester.semester].[(All)]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="program_education_level">
+            <Inclusions>
+              <Selection dimension="program_education_level" type="level" node="[program_education_level.education_level].[(All)]" operator="MEMBERS" />
+              <Selection dimension="program_education_level" type="member" node="[program_education_level.education_level].[ปริญญาเอก]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY Hierarchize(Union(CrossJoin({[dim_class_year.class_year].[All dim_class_year.class_years]}, {[Measures].[no_of_student]}), CrossJoin([dim_class_year.class_year].[class_year].Members, {[Measures].[no_of_student]}))) ON COLUMNS,
+NON EMPTY Hierarchize(Union(CrossJoin({[dim_area.Area_Name].[All dim_area.Area_Names]}, CrossJoin({[faculty_name.thai_faculty_name].[All faculty_name.thai_faculty_names]}, {[dim_field.field_name].[All dim_field.field_names]})), Union(CrossJoin({[dim_area.Area_Name].[All dim_area.Area_Names]}, CrossJoin({[faculty_name.thai_faculty_name].[All faculty_name.thai_faculty_names]}, [dim_field.field_name].[field_name].Members)), Union(CrossJoin({[dim_area.Area_Name].[All dim_area.Area_Names]}, CrossJoin([faculty_name.thai_faculty_name].[thai_faculty_name].Members, {[dim_field.field_name].[All dim_field.field_names]})), Union(CrossJoin({[dim_area.Area_Name].[All dim_area.Area_Names]}, CrossJoin([faculty_name.thai_faculty_name].[thai_faculty_name].Members, [dim_field.field_name].[field_name].Members)), Union(CrossJoin([dim_area.Area_Name].[Area_Name].Members, CrossJoin({[faculty_name.thai_faculty_name].[All faculty_name.thai_faculty_names]}, {[dim_field.field_name].[All dim_field.field_names]})), Union(CrossJoin([dim_area.Area_Name].[Area_Name].Members, CrossJoin({[faculty_name.thai_faculty_name].[All faculty_name.thai_faculty_names]}, [dim_field.field_name].[field_name].Members)), Union(CrossJoin([dim_area.Area_Name].[Area_Name].Members, CrossJoin([faculty_name.thai_faculty_name].[thai_faculty_name].Members, {[dim_field.field_name].[All dim_field.field_names]})), CrossJoin([dim_area.Area_Name].[Area_Name].Members, CrossJoin([faculty_name.thai_faculty_name].[thai_faculty_name].Members, [dim_field.field_name].[field_name].Members)))))))))) ON ROWS
+FROM [fact_all_student]
+WHERE Hierarchize(Union(CrossJoin({[dim_student_status.student_status_name].[All dim_student_status.student_status_names]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[All dim_student_status.student_status_names]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[All dim_student_status.student_status_names]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[All dim_student_status.student_status_names]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[ให้พัก]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[ให้พัก]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[ให้พัก]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[ให้พัก]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[N/A]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[N/A]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[N/A]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[N/A]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[ลาพัก]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[ลาพัก]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[ลาพัก]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[ลาพัก]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[ปกติ]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), Union(CrossJoin({[dim_student_status.student_status_name].[ปกติ]}, CrossJoin({[dim_semester.semester].[1/2556]}, {[program_education_level.education_level].[ปริญญาเอก]})), Union(CrossJoin({[dim_student_status.student_status_name].[ปกติ]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[All program_education_level.education_levels]})), CrossJoin({[dim_student_status.student_status_name].[ปกติ]}, CrossJoin({[dim_semester.semester].[All dim_semester.semesters]}, {[program_education_level.education_level].[ปริญญาเอก]}))))))))))))))))))))))</MDX>
+  <Properties>
+    <Property name="saiku.ui.render.mode" value="table" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.automatic_execution" value="false" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+  </Properties>
+</Query>
+

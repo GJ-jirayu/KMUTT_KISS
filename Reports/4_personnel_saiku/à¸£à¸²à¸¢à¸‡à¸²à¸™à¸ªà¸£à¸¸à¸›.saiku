@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="85A40786-8AC7-BFF0-A8BC-1697BBCE0586" type="QM" connection="Personnel" cube="[EMPLOYEE]" catalog="Personnel" schema="Personnel">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="orgenization" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สำนักงานอธิการบดี]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สำนักคอมพิวเตอร์]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สำนักบริหารอาคารและสถานที่]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สำนักวิจัยและบริการวิทยาศาสตร์และเทคโนโลยี]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สำนักสวนอุตสาหกรรม]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สำนักหอสมุด]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สถาบันพัฒนาและฝึกอบรมโรงงานต้นแบบ]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สถาบันวิทยาการหุ่นยนต์ภาคสนาม]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[คณะทรัพยากรชีวภาพและเทคโนโลยี]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[คณะเทคโนโลยีสารสนเทศ]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[คณะพลังงานสิ่งแวดล้อมและวัสดุ]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[คณะวิทยาศาสตร์]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[คณะวิศวกรรมศาสตร์]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[คณะศิลปศาสตร์]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[คณะสถาปัตยกรรมศาสตร์และการออกแบบ]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[บัณฑิตวิทยาลัยการจัดการและนวัตกรรม]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[วิทยาลัยสหวิทยาการ]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[หน่วยงานในกำกับมหาวิทยาลัย]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[บัณฑิตวิทยาลัยร่วมด้านพลังงานและสิ่งแวดล้อม]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[สถาบันการเรียนรู้]" operator="MEMBER" />
+              <Selection dimension="orgenization" type="member" node="[orgenization].[ไม่ระบุ]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="emp_type_group" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="emp_type_group" type="level" node="[emp_type_group].[emp_type_group_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="emp_group" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="emp_group" type="level" node="[emp_group].[emp_group_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="emp_line_group" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="emp_line_group" type="level" node="[emp_line_group.emp_line_group_name].[emp_line_group_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="nationality" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="nationality" type="level" node="[nationality].[nationality_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="position_group" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="position_group" type="level" node="[position_group].[position_group_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="Measures" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="Measures" type="member" node="[Measures].[no_of_emp]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false" sortOrder="BDESC" sortEvaluationLiteral="[dim_date.calendar].CurrentMember.Name">
+        <Dimensions>
+          <Dimension name="dim_date">
+            <Inclusions>
+              <Selection dimension="dim_date" type="member" node="[dim_date.calendar].[2557].[พ.ค.]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY CrossJoin([emp_type_group].[emp_type_group_name].Members, CrossJoin([emp_group].[emp_group_name].Members, CrossJoin([emp_line_group.emp_line_group_name].[emp_line_group_name].Members, CrossJoin([nationality].[nationality_name].Members, CrossJoin([position_group].[position_group_name].Members, {[Measures].[no_of_emp]}))))) ON COLUMNS,
+NON EMPTY {Hierarchize({{[orgenization].[สำนักงานอธิการบดี], [orgenization].[สำนักคอมพิวเตอร์], [orgenization].[สำนักบริหารอาคารและสถานที่], [orgenization].[สำนักวิจัยและบริการวิทยาศาสตร์และเทคโนโลยี], [orgenization].[สำนักสวนอุตสาหกรรม], [orgenization].[สำนักหอสมุด], [orgenization].[สถาบันพัฒนาและฝึกอบรมโรงงานต้นแบบ], [orgenization].[สถาบันวิทยาการหุ่นยนต์ภาคสนาม], [orgenization].[คณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี], [orgenization].[คณะทรัพยากรชีวภาพและเทคโนโลยี], [orgenization].[คณะเทคโนโลยีสารสนเทศ], [orgenization].[คณะพลังงานสิ่งแวดล้อมและวัสดุ], [orgenization].[คณะวิทยาศาสตร์], [orgenization].[คณะวิศวกรรมศาสตร์], [orgenization].[คณะศิลปศาสตร์], [orgenization].[คณะสถาปัตยกรรมศาสตร์และการออกแบบ], [orgenization].[บัณฑิตวิทยาลัยการจัดการและนวัตกรรม], [orgenization].[วิทยาลัยสหวิทยาการ], [orgenization].[หน่วยงานในกำกับมหาวิทยาลัย], [orgenization].[บัณฑิตวิทยาลัยร่วมด้านพลังงานและสิ่งแวดล้อม], [orgenization].[สถาบันการเรียนรู้], [orgenization].[ไม่ระบุ]}})} ON ROWS
+FROM [EMPLOYEE]
+WHERE Order({[dim_date.calendar].[2557].[พ.ค.]}, [dim_date.calendar].CurrentMember.Name, BDESC)</MDX>
+  <Totals>
+    <Total uniqueLevelName="ROWS" functionName="sum" />
+  </Totals>
+  <Properties>
+    <Property name="saiku.ui.render.mode" value="table" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.automatic_execution" value="false" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+  </Properties>
+</Query>
+

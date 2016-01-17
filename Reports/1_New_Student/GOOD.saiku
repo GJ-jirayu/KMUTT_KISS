@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="9D689983-3BF8-B7B4-8B8B-A3F502F2A1AC" type="QM" connection="Personnel" cube="[EMPLOYEE]" catalog="Personnel" schema="Personnel">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true" />
+      <Axis location="COLUMNS" nonEmpty="true" />
+      <Axis location="FILTER" nonEmpty="false" />
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+FROM [EMPLOYEE]</MDX>
+  <Totals />
+  <Properties>
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+  </Properties>
+</Query>
+

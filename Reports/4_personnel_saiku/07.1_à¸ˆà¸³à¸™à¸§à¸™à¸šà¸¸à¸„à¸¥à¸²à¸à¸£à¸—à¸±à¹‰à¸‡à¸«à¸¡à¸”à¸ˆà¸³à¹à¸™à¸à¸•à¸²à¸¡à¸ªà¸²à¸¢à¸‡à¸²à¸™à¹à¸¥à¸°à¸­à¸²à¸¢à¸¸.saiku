@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Query name="8E66A03D-966B-702E-A8F2-6B8736E79728" type="QM" connection="Personnel" cube="[EMPLOYEE]" catalog="Personnel" schema="Personnel">
+  <QueryModel>
+    <Axes>
+      <Axis location="ROWS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="area" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="area" type="level" node="[area].[area_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="orgenization" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="orgenization" type="level" node="[orgenization].[orgenization_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="department" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="department" type="level" node="[department].[department_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="COLUMNS" nonEmpty="true">
+        <Dimensions>
+          <Dimension name="level" hierarchizeMode="PRE" hierarchyConsistent="true">
+            <Inclusions>
+              <Selection dimension="level" type="level" node="[level].[level_name]" operator="MEMBERS" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+      <Axis location="FILTER" nonEmpty="false">
+        <Dimensions>
+          <Dimension name="emp_type">
+            <Inclusions>
+              <Selection dimension="emp_type" type="member" node="[emp_type].[ข้าราชการ]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+          <Dimension name="emp_line">
+            <Inclusions>
+              <Selection dimension="emp_line" type="member" node="[emp_line].[เชี่ยวชาญเฉพาะ]" operator="MEMBER" />
+            </Inclusions>
+            <Exclusions />
+          </Dimension>
+        </Dimensions>
+      </Axis>
+    </Axes>
+  </QueryModel>
+  <MDX>SELECT
+NON EMPTY {Hierarchize({[level].[level_name].Members})} ON COLUMNS,
+NON EMPTY CrossJoin([area].[area_name].Members, CrossJoin([orgenization].[orgenization_name].Members, [department].[department_name].Members)) ON ROWS
+FROM [EMPLOYEE]
+WHERE CrossJoin({[emp_type].[ข้าราชการ]}, {[emp_line].[เชี่ยวชาญเฉพาะ]})</MDX>
+  <Totals />
+  <Properties>
+    <Property name="saiku.olap.query.limit" value="true" />
+    <Property name="saiku.olap.query.filter" value="true" />
+    <Property name="org.saiku.query.explain" value="true" />
+    <Property name="org.saiku.connection.scenario" value="false" />
+    <Property name="saiku.olap.query.nonempty" value="true" />
+    <Property name="saiku.olap.query.nonempty.rows" value="true" />
+    <Property name="saiku.olap.query.nonempty.columns" value="true" />
+    <Property name="saiku.olap.query.drillthrough" value="true" />
+  </Properties>
+</Query>
+
